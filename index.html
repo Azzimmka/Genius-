@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>La Dolce Vita: Discover Italy</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="./script.js" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Lora:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div id="preloader">
+      <div class="loader"></div>
+      <div class="loader-text">Loading...</div>
+    </div>
+
+    <div class="video-background">
+      <video
+        autoplay
+        muted
+        loop
+        playsinline
+        poster="https://images.unsplash.com/photo-1552832223-9c878931215b?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+      >
+        <source src="./video/italy.mp4" type="mp4" />
+        <source src="./video/italy-2.webm" type="video/webm" />
+        <img
+          src="https://delivery.gfobcontent.com/api/public/content/09695c6a4a1c4bf9b20287ad2905dfe4?v=ee77d09d"
+          alt="Scenic Italy"
+          class="fallback-img"
+        />
+      </video>
+    </div>
+
+    <audio id="background-audio" loop>
+      <source src="./music.mp3" type="audio/mpeg" />
+      Your browser does not support the audio element.
+    </audio>
+
+    <div class="container">
+      <header>
+        <h1><a href="#welcome">La Dolce Vita</a></h1>
+        <nav>
+          <ul>
+            <li><a href="#culture" data-section="culture">Culture</a></li>
+            <li><a href="#food" data-section="food">Food</a></li>
+            <li>
+              <a href="#art-history" data-section="art-history"
+                >Art & History</a
+              >
+            </li>
+            <li><a href="#landmarks" data-section="landmarks">Landmarks</a></li>
+          </ul>
+        </nav>
+      </header>
+
+      <main>
+        <section id="welcome" class="section-full-height">
+          <div class="section-content welcome-content">
+            <h2
+              style="
+                background: linear-gradient(
+                  to right,
+                  rgb(0, 140, 69),
+                  rgb(205, 33, 42)
+                );
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+              "
+            >
+              Unveiling Italy
+            </h2>
+            <p
+              style="
+                background: linear-gradient(
+                  to right,
+                  rgb(0, 140, 69),
+                  rgb(205, 33, 42)
+                );
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+              "
+            >
+              Embark on a journey through the heart of European elegance.
+            </p>
+            <a href="#culture" class="scroll-down-link">
+              <span>Scroll Down to Discover</span>
+              <div class="arrow-down-pulse"></div>
+            </a>
+          </div>
+        </section>
+
+        <section id="culture" class="section-full-height">
+          <div class="section-content">
+            <div class="split-layout">
+              <div class="text-side">
+                <h2>A Tapestry of Culture</h2>
+                <p>
+                  Experience the **vibrant traditions** and passionate spirit
+                  that define Italian life. From lively family gatherings to the
+                  sophisticated world of fashion, every moment is celebrated.
+                </p>
+              </div>
+              <div class="image-side">
+                <img
+                  src="./mona.jpeg"
+                  alt="Italian Street Life"
+                  class="section-img"
+                />
+              </div>
+            </div>
+            <a href="#food" class="next-section-link">Next: Food &raquo;</a>
+          </div>
+        </section>
+
+        <section id="food" class="section-full-height">
+          <div class="section-content">
+            <div class="split-layout reverse-split">
+              <div class="text-side">
+                <h2>Delicious food</h2>
+                <p>
+                  Savor the iconic flavors of **pizza, pasta, and gelato**,
+                  crafted with fresh, local ingredients and generations of
+                  culinary passion. Italian cuisine is a global language of
+                  love.
+                </p>
+              </div>
+              <div class="image-side">
+                <img
+                  src="./food.jpeg"
+                  alt="Delicious Pizza"
+                  class="section-img"
+                />
+              </div>
+            </div>
+            <a href="#art-history" class="next-section-link"
+              >Next: Art & History &raquo;</a
+            >
+          </div>
+        </section>
+
+        <section id="art-history" class="section-full-height">
+          <div class="section-content">
+            <div class="split-layout">
+              <div class="text-side">
+                <h2>Art & Enduring History</h2>
+                <p>
+                  Walk through millennia of history, from ancient Roman grandeur
+                  to the breathtaking brilliance of the **Renaissance**. Italy
+                  is a living museum, inspiring awe at every turn.
+                </p>
+              </div>
+              <div class="image-side">
+                <img
+                  src="./art.jpeg"
+                  alt="Ancient Roman Ruins"
+                  class="section-img"
+                />
+              </div>
+            </div>
+            <a href="#landmarks" class="next-section-link"
+              >Next: Landmarks &raquo;</a
+            >
+          </div>
+        </section>
+
+        <section id="landmarks" class="section-full-height">
+          <div class="section-content">
+            <div class="split-layout reverse-split">
+              <div class="text-side">
+                <h2>Famous places</h2>
+                <p>
+                  Marvel at architectural wonders like the **Colosseum**, the
+                  romantic canals of **Venice**, and the charming streets of
+                  Florence. Each landmark tells a story of Italy's majestic
+                  past.
+                </p>
+              </div>
+              <div class="image-side">
+                <img
+                  src="./built.jpeg"
+                  alt="Venice Canals"
+                  class="section-img"
+                />
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <footer>
+        <p>Designed with ❤️ For Genius</p>
+      </footer>
+    </div>
+
+    <div class="audio-control">
+      <button id="play-pause-btn" aria-label="Toggle Music">🎵</button>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
