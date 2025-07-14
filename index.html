@@ -5,23 +5,37 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>La Dolce Vita: Discover Italy</title>
     <link rel="stylesheet" href="styles.css" />
-    <link rel="stylesheet" href="./script.js" />
     <link
       href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Lora:wght@400;500&display=swap"
       rel="stylesheet"
     />
-    
-  <meta property="og:title" content="La Dolce Vita: Погружение в Италию">
-  <meta property="og:description" content="Откройте для себя чарующую культуру, изысканную кухню и величественную историю Италии.">
-  <meta property="og:image" content="https://genius-ten-nu.vercel.app/flag.png">
-  <meta property="og:url" content="https://genius-ten-nu.vercel.app/">
-  <meta property="og:type" content="website">
+    <link rel="shortcut icon" href="./flag.png" type="image/x-icon">
 
-  <meta property="og:locale" content="ru_RU"> <meta property="og:site_name" content="La Dolce Vita">
-  <meta property="og:image:width" content="1200"> <meta property="og:image:height" content="630"> <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="La Dolce Vita: Погружение в Италию">
-  <meta name="twitter:description" content="Откройте для себя чарующую культуру, изысканную кухню и величественную историю Италии.">
-  <meta name="twitter:image" content="https://genius-ten-nu.vercel.app/flag.png">
+    <meta property="og:title" content="Погружение в Италию" />
+    <meta
+      property="og:description"
+      content="Откройте для себя чарующую культуру, изысканную кухню и величественную историю Италии."
+    />
+    <meta
+      property="og:image"
+      content="https://genius-ten-nu.vercel.app/flag.png"
+    />
+    <meta property="og:url" content="https://genius-ten-nu.vercel.app/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="ru_RU" />
+    <meta property="og:site_name" content="La Dolce Vita" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Погружение в Италию" />
+    <meta
+      name="twitter:description"
+      content="Откройте для себя чарующую культуру, изысканную кухню и величественную историю Италии."
+    />
+    <meta
+      name="twitter:image"
+      content="https://genius-ten-nu.vercel.app/flag.png"
+    />
   </head>
   <body>
     <div id="preloader">
@@ -37,34 +51,30 @@
         playsinline
         poster="https://images.unsplash.com/photo-1552832223-9c878931215b?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
       >
-        <source src="./video/italy.mp4" type="mp4" />
-        <source src="./video/italy-2.webm" type="video/webm" />
+        <source src="./video/italy.mp4" type="video/mp4" />
+        <source src="./italy_bkg_video_subtle.webm" type="video/webm" />
         <img
-          src="https://delivery.gfobcontent.com/api/public/content/09695c6a4a1c4bf9b20287ad2905dfe4?v=ee77d09d"
+          src="https://images.unsplash.com/photo-1502602898669-a316b8014ad3?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
           alt="Scenic Italy"
           class="fallback-img"
         />
       </video>
     </div>
 
-    <audio id="background-audio" loop>
+    <audio id="background-audio" loop autoplay muted>
       <source src="./music.mp3" type="audio/mpeg" />
       Your browser does not support the audio element.
     </audio>
 
     <div class="container">
       <header>
-        <h1><a href="#welcome">La Dolce Vita</a></h1>
+        <h1><a href="#welcome">Italy</a></h1>
         <nav>
           <ul>
-            <li><a href="#culture" data-section="culture">Culture</a></li>
-            <li><a href="#food" data-section="food">Food</a></li>
-            <li>
-              <a href="#art-history" data-section="art-history"
-                >Art & History</a
-              >
-            </li>
-            <li><a href="#landmarks" data-section="landmarks">Landmarks</a></li>
+        <li><a href="./culture.html">Culture</a></li>
+        <li><a href="./food.html">Food</a></li>
+        <li><a href="./history.html">Art & History</a></li>
+        <li><a href="./famous.html">Famous Buildings</a></li>
           </ul>
         </nav>
       </header>
@@ -83,7 +93,7 @@
                 -webkit-text-fill-color: transparent;
               "
             >
-              Unveiling Italy
+              Traveling to Italy 
             </h2>
             <p
               style="
@@ -96,12 +106,10 @@
                 -webkit-text-fill-color: transparent;
               "
             >
-              Embark on a journey through the heart of European elegance.
+              <a href="#culture" class="scroll-down-link">
+
+              </a>
             </p>
-            <a href="#culture" class="scroll-down-link">
-              <span>Scroll Down to Discover</span>
-              <div class="arrow-down-pulse"></div>
-            </a>
           </div>
         </section>
 
@@ -109,22 +117,20 @@
           <div class="section-content">
             <div class="split-layout">
               <div class="text-side">
-                <h2>A Tapestry of Culture</h2>
+                <h2>A picture of culture</h2>
                 <p>
-                  Experience the **vibrant traditions** and passionate spirit
-                  that define Italian life. From lively family gatherings to the
-                  sophisticated world of fashion, every moment is celebrated.
+🇮🇹 You can feel the strong traditions and happy energy of Italian life. Families often meet and talk together. Fashion is important. Every moment feels special.
                 </p>
               </div>
               <div class="image-side">
                 <img
-                  src="./mona.jpeg"
+                  src="./picture.jpeg"
                   alt="Italian Street Life"
                   class="section-img"
                 />
               </div>
             </div>
-            <a href="#food" class="next-section-link">Next: Food &raquo;</a>
+            <a href="./culture.html" class="next-section-link">See More &raquo;</a>
           </div>
         </section>
 
@@ -134,22 +140,19 @@
               <div class="text-side">
                 <h2>Delicious food</h2>
                 <p>
-                  Savor the iconic flavors of **pizza, pasta, and gelato**,
-                  crafted with fresh, local ingredients and generations of
-                  culinary passion. Italian cuisine is a global language of
-                  love.
+🍕 Enjoy pizza, pasta, and ice cream. They are made with fresh food and lots of love. Italian food is loved all over the world.
                 </p>
               </div>
               <div class="image-side">
                 <img
-                  src="./food.jpeg"
+                  src="./pizza.jpeg"
                   alt="Delicious Pizza"
                   class="section-img"
                 />
               </div>
             </div>
-            <a href="#art-history" class="next-section-link"
-              >Next: Art & History &raquo;</a
+            <a href="./food.html" class="next-section-link"
+              >See more &raquo;</a
             >
           </div>
         </section>
@@ -160,9 +163,7 @@
               <div class="text-side">
                 <h2>Art & Enduring History</h2>
                 <p>
-                  Walk through millennia of history, from ancient Roman grandeur
-                  to the breathtaking brilliance of the **Renaissance**. Italy
-                  is a living museum, inspiring awe at every turn.
+                  🏛️ Italy has a long history. You can see old Roman buildings and beautiful art from the Renaissance. Italy is like a big museum.
                 </p>
               </div>
               <div class="image-side">
@@ -173,8 +174,8 @@
                 />
               </div>
             </div>
-            <a href="#landmarks" class="next-section-link"
-              >Next: Landmarks &raquo;</a
+            <a href="./history.html" class="next-section-link"
+              >See More &raquo;</a
             >
           </div>
         </section>
@@ -185,10 +186,7 @@
               <div class="text-side">
                 <h2>Famous places</h2>
                 <p>
-                  Marvel at architectural wonders like the **Colosseum**, the
-                  romantic canals of **Venice**, and the charming streets of
-                  Florence. Each landmark tells a story of Italy's majestic
-                  past.
+  🏛️ See amazing places in Italy like the Colosseum, the canals in Venice, and the small streets in Florence. These places show Italy’s great history.
                 </p>
               </div>
               <div class="image-side">
@@ -199,19 +197,16 @@
                 />
               </div>
             </div>
+                        <a href="./famous.html" class="next-section-link"
+              >See More &raquo;</a
+            >
           </div>
         </section>
       </main>
 
       <footer>
-        <p>Designed with ❤️ For Genius</p>
+        <p>Designed with ❤️ by Azim Gulyamov for Italy</p>
       </footer>
     </div>
-
-    <div class="audio-control">
-      <button id="play-pause-btn" aria-label="Toggle Music">🎵</button>
-    </div>
-
-    <script src="script.js"></script>
   </body>
 </html>

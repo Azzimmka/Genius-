@@ -1,17 +1,19 @@
 /* General Reset & Body */
-html, body {
+html {
+  scroll-behavior: smooth; /* Плавная прокрутка для якорей HTML */
+}
+
+body {
   margin: 0;
   padding: 0;
   font-family: 'Lora', serif;
   background: #fdfdfd;
   color: #333;
-  /* Smooth scroll behavior for anchor links */
-  scroll-behavior: smooth;
   overflow-x: hidden;
   height: 100%;
 }
 
-/* Preloader */
+/* Preloader (Pure CSS - просто исчезает после анимации) */
 #preloader {
   position: fixed;
   top: 0;
@@ -24,13 +26,8 @@ html, body {
   justify-content: center;
   align-items: center;
   z-index: 9999;
-  transition: opacity 0.8s ease-out, visibility 0.8s ease-out; /* Controlled by JS */
-}
-
-#preloader.hidden {
-  opacity: 0;
-  visibility: hidden;
-  pointer-events: none;
+  animation: fadeOutPreloader 2s ease-out forwards 3s; /* Исчезает через 3 секунды */
+  pointer-events: none; /* Разрешает клики через него после исчезновения */
 }
 
 .loader {
@@ -55,6 +52,12 @@ html, body {
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
 }
+
+@keyframes fadeOutPreloader {
+  0% { opacity: 1; visibility: visible; }
+  100% { opacity: 0; visibility: hidden; }
+}
+
 
 /* Video Background */
 .video-background {
@@ -82,7 +85,7 @@ html, body {
 }
 
 .video-background .fallback-img {
-  display: none;
+  display: none; /* Скрыто по умолчанию, если видео работает */
   min-width: 100%;
   min-height: 100%;
   width: auto;
@@ -95,6 +98,7 @@ html, body {
   opacity: 0.1;
   filter: grayscale(70%) brightness(1.2);
 }
+
 
 /* Main Container & Header */
 .container {
@@ -178,8 +182,6 @@ nav a::after {
   transition: width 0.3s ease-in-out, background-color 0.3s ease;
 }
 
-/* Nav current class now controlled by JS */
-nav a.current::after,
 nav a:hover::after {
   width: 100%;
   background-color: #CD212A;
@@ -201,7 +203,7 @@ main {
   overflow: hidden;
 }
 
-/* Initial content animation (visible once page loads) */
+/* Content will just be visible by default, no JS fade-in */
 .section-content {
   background-color: rgba(255, 255, 255, 0.98);
   border-radius: 15px;
@@ -210,14 +212,6 @@ main {
   max-width: 800px;
   width: 90%;
   text-align: center;
-  opacity: 0; /* Initially hidden, JS will animate */
-  transform: translateY(20px); /* JS will animate */
-  transition: opacity 1s ease-out, transform 1s ease-out; /* Smooth transition for JS */
-}
-
-.section-content.visible { /* Class added by JS */
-    opacity: 1;
-    transform: translateY(0);
 }
 
 /* Welcome Section Specific Styles */
@@ -231,9 +225,16 @@ main {
   box-shadow: none;
   padding: 0;
   max-width: 900px;
-  opacity: 1; /* Always visible for welcome content */
-  transform: none;
+  /* Анимации для welcome-content теперь чисто CSS, без JS */
+  animation: fadeInContent 2s ease-out forwards 3.5s; /* Появляется после прелоадера */
+  opacity: 0;
 }
+
+@keyframes fadeInContent {
+  0% { opacity: 0; transform: translateY(20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
 
 #welcome h2 {
   font-family: 'Playfair Display', serif;
@@ -241,7 +242,6 @@ main {
   color: white;
   text-shadow: 0 4px 10px rgba(0,0,0,0.5);
   margin-bottom: 20px;
-  /* Animations handled by JS for precise timing after preloader */
 }
 
 #welcome p {
@@ -249,7 +249,6 @@ main {
   color: rgba(255,255,255,0.9);
   text-shadow: 0 2px 5px rgba(0,0,0,0.4);
   margin-top: 20px;
-  /* Animations handled by JS */
 }
 
 /* Scroll Down Link */
@@ -262,7 +261,6 @@ main {
   color: rgba(255,255,255,0.9);
   font-size: 20px;
   transition: transform 0.3s ease;
-  /* Animations handled by JS */
 }
 
 .scroll-down-link:hover {
@@ -379,36 +377,6 @@ footer {
   z-index: 40;
 }
 
-/* Audio Control Button (back to JS-controlled button) */
-.audio-control {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  z-index: 70;
-}
-
-.audio-control button {
-  background-color: rgba(0, 140, 69, 0.8);
-  color: white;
-  border: none;
-  width: 45px;
-  height: 45px;
-  border-radius: 50%;
-  font-size: 20px;
-  cursor: pointer;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-}
-
-.audio-control button:hover {
-  background-color: rgba(0, 110, 50, 1);
-  transform: translateY(-2px);
-  box-shadow: 0 6px 12px rgba(0,0,0,0.3);
-}
-
 /* Keyframe Animations */
 @keyframes fadeIn {
   from { opacity: 0; }
@@ -425,7 +393,134 @@ footer {
   50% { transform: translateY(-8px); }
 }
 
-/* Media Queries for Responsiveness (без изменений) */
+/* culture.html specific styles */
+
+.secondary-header {
+  position: sticky; /* Sticky header for culture.html */
+  top: 0;
+  background-color: rgba(255, 255, 255, 0.98);
+  backdrop-filter: blur(8px);
+  box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+  z-index: 60; /* Higher z-index to be above main content */
+  padding: 15px 30px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.secondary-header h1 {
+  font-size: 42px; /* Slightly smaller than main header */
+}
+
+.secondary-header nav ul {
+  gap: 30px;
+}
+
+.culture-page-main {
+  padding-top: 100px; /* Offset for sticky header */
+  background-color: #fcfcfc;
+  min-height: calc(100vh - 80px); /* Adjust to ensure content fills screen */
+}
+
+.culture-intro {
+  text-align: center;
+  max-width: 900px;
+  margin: 0 auto 60px auto;
+  padding: 40px 20px;
+  background-color: #ffffff;
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+  animation: slideInContent 1s ease-out forwards; /* CSS-анимация появления */
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+@keyframes slideInContent {
+  0% { opacity: 0; transform: translateY(20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+.culture-intro h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 56px;
+  color: #1b263b;
+  margin-bottom: 20px;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.05);
+  background: linear-gradient(to right, #CD212A, #008C45);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.culture-intro p {
+  font-size: 20px;
+  line-height: 1.7;
+  color: #555;
+  padding: 0 20px;
+}
+
+.culture-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive grid */
+  gap: 40px;
+  padding: 0 40px 60px 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.gallery-card {
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+  overflow: hidden; /* Important for image zoom */
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 500px; /* Ensure cards have consistent height */
+  animation: fadeInZoom 0.8s ease-out forwards;
+  opacity: 0; /* Hidden initially, CSS animation will reveal */
+}
+
+/* Delay for each card animation */
+.culture-gallery .gallery-card:nth-child(1) { animation-delay: 0.2s; }
+.culture-gallery .gallery-card:nth-child(2) { animation-delay: 0.4s; }
+.culture-gallery .gallery-card:nth-child(3) { animation-delay: 0.6s; }
+
+@keyframes fadeInZoom {
+  0% { opacity: 0; transform: translateY(20px) scale(0.95); }
+  100% { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.gallery-card img {
+  width: 100%;
+  height: 250px; /* Fixed height for images */
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease; /* Smooth zoom effect */
+}
+
+.gallery-card:hover img {
+  transform: scale(1.1); /* Zoom effect on hover */
+}
+
+.gallery-card h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 28px;
+  color: #CD212A;
+  margin: 25px 20px 15px 20px;
+}
+
+.gallery-card p {
+  font-size: 17px;
+  line-height: 1.6;
+  color: #444;
+  padding: 0 25px 25px 25px; /* Padding at bottom for text */
+}
+
+
+/* Media Queries for Responsiveness */
 @media (max-width: 992px) {
   header {
     padding: 10px 20px;
@@ -480,6 +575,38 @@ footer {
     font-size: 18px;
     margin-top: 40px;
   }
+
+  /* Culture page specific media queries */
+  .secondary-header h1 {
+    font-size: 36px;
+  }
+  .secondary-header nav ul {
+    gap: 20px;
+  }
+  .culture-intro h2 {
+    font-size: 48px;
+  }
+  .culture-intro p {
+    font-size: 18px;
+  }
+  .culture-gallery {
+    grid-template-columns: 1fr; /* Stack cards on smaller screens */
+    padding: 0 20px 40px 20px;
+  }
+  .gallery-card {
+    min-height: auto; /* Allow height to adjust */
+  }
+  .gallery-card img {
+    height: 220px;
+  }
+  .gallery-card h3 {
+    font-size: 24px;
+    margin-top: 20px;
+  }
+  .gallery-card p {
+    font-size: 16px;
+    padding-bottom: 20px;
+  }
 }
 
 @media (max-width: 768px) {
@@ -522,10 +649,43 @@ footer {
   .scroll-down-link span {
     font-size: 16px;
   }
-  .audio-control button {
+  .loader {
     width: 40px;
     height: 40px;
-    font-size: 18px;
+    border-width: 5px;
+  }
+  .loader-text {
+    font-size: 22px;
+  }
+
+  /* Culture page specific media queries */
+  .secondary-header {
+    flex-direction: column;
+    padding: 10px 15px;
+  }
+  .secondary-header h1 {
+    font-size: 32px;
+    margin-bottom: 10px;
+  }
+  .secondary-header nav ul {
+    gap: 15px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .secondary-header nav a {
+    font-size: 14px;
+  }
+  .culture-page-main {
+    padding-top: 130px; /* Adjust for taller header */
+  }
+  .culture-intro h2 {
+    font-size: 38px;
+  }
+  .culture-intro p {
+    font-size: 16px;
+  }
+  .culture-gallery {
+    gap: 30px;
   }
 }
 
@@ -562,12 +722,22 @@ footer {
     border-right-width: 12px;
     border-top-width: 20px;
   }
-  .loader {
-    width: 40px;
-    height: 40px;
-    border-width: 5px;
+
+  /* Culture page specific media queries */
+  .culture-intro h2 {
+    font-size: 32px;
   }
-  .loader-text {
+  .culture-intro p {
+    font-size: 15px;
+    padding: 0 10px;
+  }
+  .culture-gallery {
+    padding: 0 15px 30px 15px;
+  }
+  .gallery-card h3 {
     font-size: 22px;
+  }
+  .gallery-card p {
+    font-size: 15px;
   }
 }
